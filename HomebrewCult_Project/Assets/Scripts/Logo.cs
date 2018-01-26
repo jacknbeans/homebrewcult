@@ -6,9 +6,8 @@ public class Logo : MonoBehaviour {
 
     public Sprite[] logoAnim;
     public float animFrameDelay;
-    public float soundPlayDelay;
     private float animTimer;
-    private float soundTimer;
+    public int soundPlayAtFrame;
 
     private int animFrameUsed = 0;
     private bool soundPlayed = false;
@@ -19,7 +18,6 @@ public class Logo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         animTimer = animFrameDelay;
-        soundTimer = soundPlayDelay;
         logoAudioSource = GetComponent<AudioSource>();
         logoSpriteRend = GetComponent<SpriteRenderer>();
 	}
@@ -31,7 +29,7 @@ public class Logo : MonoBehaviour {
 
         //animation
         animTimer -= Time.deltaTime;
-        if (animTimer <= 0 && animFrameUsed < logoAnim.Length)
+        if (animTimer <= 0 && animFrameUsed < logoAnim.Length-1)
         {
             animTimer = animFrameDelay;
             animFrameUsed++;
@@ -42,8 +40,7 @@ public class Logo : MonoBehaviour {
         }
 
         //sound
-        soundTimer -= Time.deltaTime;
-        if (soundTimer <= 0 && !soundPlayed)
+        if (animFrameUsed == soundPlayAtFrame)
         {
             logoAudioSource.Play();
             soundPlayed = true;
