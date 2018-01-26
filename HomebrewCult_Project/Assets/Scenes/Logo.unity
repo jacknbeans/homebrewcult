@@ -254,7 +254,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dbd183067c5100e4586998d1f7a2ddab, type: 3}
   - {fileID: 21300000, guid: dbd183067c5100e4586998d1f7a2ddab, type: 3}
   animFrameDelay: 0.1
-  soundPlayDelay: 0.5
+  soundPlayDelay: 1.1
 --- !u!4 &390610140
 Transform:
   m_ObjectHideFlags: 0
