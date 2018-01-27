@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Core
+namespace Core.SwitchCamera
 {
     public class LookAtBase : MonoBehaviour, IPointerEnterHandler
     {

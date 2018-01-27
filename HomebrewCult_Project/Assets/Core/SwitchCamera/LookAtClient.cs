@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Core
+﻿namespace Core.SwitchCamera
 {
     public class LookAtClient : LookAtBase
     {
