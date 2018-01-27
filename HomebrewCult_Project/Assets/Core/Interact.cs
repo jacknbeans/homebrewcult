@@ -7,20 +7,16 @@ namespace Core
         public float DropSpeed = 10.0f;
         public Transform HeightPlane;
         public float HeightPlaneMin = -2.0f;
+        public float OverlapSphereRadius = 1.0f;
 
         private bool _startTransition;
         private float _startHeightY;
         private float _oldHeightMin;
-        private BoxCollider _collider;
-        private Rigidbody _rigidbody;
-
-        private FixedJoint _otherJoint;
+        private Interactable _interactableObject;
 
         private void Start()
         {
             _startHeightY = HeightPlane.position.y;
-            _collider = GetComponent<BoxCollider>();
-            _rigidbody = GetComponent<Rigidbody>();
         }
 
         private void Update()
@@ -53,10 +49,31 @@ namespace Core
                 transform.position = hit.point;
             }
 
-            if (_otherJoint != null && Input.GetMouseButtonUp(0))
+            layers = new[] {"InteractableObjects"};
+            layerMask = LayerMask.GetMask(layers);
+            var touchingInteractableObjects = Input.GetMouseButton(0)
+                ? Physics.OverlapSphere(transform.position, OverlapSphereRadius, layerMask)
+                : new Collider[] { };
+
+            foreach (var interactableObject in touchingInteractableObjects)
             {
-                _otherJoint.connectedBody = null;
-                _otherJoint = null;
+                _interactableObject = interactableObject.GetComponent<Interactable>();
+                if (_interactableObject == null)
+                {
+                    Debug.LogError("No Interactable script found on object in InteractableObjects layer!");
+                    continue;
+                }
+
+                _interactableObject.Carry(transform);
+                break;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (_interactableObject != null)
+                {
+                    _interactableObject.Drop();
+                }
             }
         }
 
@@ -74,13 +91,6 @@ namespace Core
                 if (contactPoint.normal.y >= 1.0f)
                 {
                     HeightPlaneMin = contactPoint.point.y;
-
-                    if (other.gameObject.CompareTag("Interactable") && Input.GetMouseButton(0))
-                    {
-                        _otherJoint = other.gameObject.GetComponent<FixedJoint>();
-                        _otherJoint.connectedBody = _rigidbody;
-                    }
-
                     break;
                 }
             }
@@ -89,6 +99,13 @@ namespace Core
         private void OnCollisionExit(Collision other)
         {
             HeightPlaneMin = _oldHeightMin;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(transform.position, OverlapSphereRadius);
+            Gizmos.color = Color.white;
         }
     }
 }

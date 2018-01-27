@@ -155,3 +155,4 @@ MonoBehaviour:
   DropSpeed: 5
   HeightPlane: {fileID: 0}
   HeightPlaneMin: -2
+  OverlapSphereRadius: 0.2
