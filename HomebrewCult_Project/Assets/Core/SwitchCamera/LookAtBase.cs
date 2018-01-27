@@ -7,7 +7,7 @@ namespace Core.SwitchCamera
     {
         public Transform CameraRig;
         public float CameraAngle;
-        public float TransitionTime = 0.3f;
+        public float TransitionTime = 0.2f;
         public LookAtBase OtherLookAt;
         public Interact HandRef;
 
