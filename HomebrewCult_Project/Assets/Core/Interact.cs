@@ -4,42 +4,44 @@ namespace Core
 {
     public class Interact : MonoBehaviour
     {
-        public float DropSpeed = 10.0f;
-        public Transform HeightPlane;
-        public float HeightPlaneMin = -2.0f;
+        public HandPlane.HandPlaneLogic HeightPlane;
+        public float OverlapSphereRadius = 1.0f;
+        public float TargetRotationLookAtClient = 285.0f;
+        public float TransitionTime = 0.2f;
+        public float Threshold;
+
+        private Interactable _interactableObject;
 
         private bool _startTransition;
-        private float _startHeightY;
-        private float _oldHeightMin;
-        private BoxCollider _collider;
-        private Rigidbody _rigidbody;
+        private float _velocity;
+        private float _startRotation;
 
-        private FixedJoint _otherJoint;
+        private Collider _collider;
 
         private void Start()
         {
-            _startHeightY = HeightPlane.position.y;
-            _collider = GetComponent<BoxCollider>();
-            _rigidbody = GetComponent<Rigidbody>();
+            _startRotation = transform.eulerAngles.x;
+            _collider = GetComponent<Collider>();
         }
 
         private void Update()
         {
             if (_startTransition)
             {
-                _startTransition = false;
-            }
-            else
-            {
-                var heightY = Input.GetMouseButton(0)
-                    ? HeightPlane.position.y - DropSpeed * Time.deltaTime
-                    : HeightPlane.position.y + DropSpeed * Time.deltaTime;
-                heightY = heightY >= _startHeightY ? _startHeightY : heightY;
-                heightY = heightY <= HeightPlaneMin ? HeightPlaneMin : heightY;
+                var newAngle = Mathf.SmoothDampAngle(transform.eulerAngles.z, TargetRotationLookAtClient,
+                    ref _velocity, TransitionTime);
+                transform.rotation =
+                    Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, newAngle);
+                
+                if (Mathf.Abs(TargetRotationLookAtClient - newAngle) <= Threshold)
+                {
+                    var switchRotation = TargetRotationLookAtClient;
+                    TargetRotationLookAtClient = _startRotation;
+                    _startRotation = switchRotation;
 
-                HeightPlane.localPosition = new Vector3(HeightPlane.position.x,
-                    heightY,
-                    HeightPlane.position.z);
+                    _startTransition = false;
+                    _collider.isTrigger = false;
+                }
             }
 
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,34 +55,51 @@ namespace Core
                 transform.position = hit.point;
             }
 
-            if (_otherJoint != null && Input.GetMouseButtonUp(0))
+            layers = new[] {"InteractableObjects"};
+            layerMask = LayerMask.GetMask(layers);
+            var touchingInteractableObjects = Input.GetMouseButton(0) && _interactableObject == null
+                ? Physics.OverlapSphere(transform.position, OverlapSphereRadius, layerMask)
+                : new Collider[] { };
+
+            foreach (var interactableObject in touchingInteractableObjects)
             {
-                _otherJoint.connectedBody = null;
-                _otherJoint = null;
+                _interactableObject = interactableObject.GetComponent<Interactable>();
+                if (_interactableObject == null)
+                {
+                    Debug.LogError("No Interactable script found on object in InteractableObjects layer!");
+                    continue;
+                }
+
+                _interactableObject.Carry(transform);
+                break;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (_interactableObject != null)
+                {
+                    _interactableObject.Drop();
+                    _interactableObject = null;
+                }
             }
         }
 
         public void StartTransition()
         {
             _startTransition = true;
+            _collider.isTrigger = true;
+            HeightPlane.StartTransition();
         }
 
         private void OnCollisionEnter(Collision other)
         {
-            _oldHeightMin = HeightPlaneMin;
+            HeightPlane.OldHeightMin = HeightPlane.HeightPlaneMin;
 
             foreach (var contactPoint in other.contacts)
             {
                 if (contactPoint.normal.y >= 1.0f)
                 {
-                    HeightPlaneMin = contactPoint.point.y;
-
-                    if (other.gameObject.CompareTag("Interactable") && Input.GetMouseButton(0))
-                    {
-                        _otherJoint = other.gameObject.GetComponent<FixedJoint>();
-                        _otherJoint.connectedBody = _rigidbody;
-                    }
-
+                    HeightPlane.HeightPlaneMin = Mathf.Abs(HeightPlane.transform.InverseTransformPoint(contactPoint.point).y - HeightPlane.StartHeightY);
                     break;
                 }
             }
@@ -88,7 +107,14 @@ namespace Core
 
         private void OnCollisionExit(Collision other)
         {
-            HeightPlaneMin = _oldHeightMin;
+            HeightPlane.HeightPlaneMin = HeightPlane.OldHeightMin;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(transform.position, OverlapSphereRadius);
+            Gizmos.color = Color.white;
         }
     }
 }

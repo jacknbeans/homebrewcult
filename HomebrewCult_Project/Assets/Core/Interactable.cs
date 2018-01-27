@@ -4,16 +4,36 @@ namespace Core
 {
     public class Interactable : MonoBehaviour
     {
-        private void OnMouseDown()
+        private Transform _hand;
+        private Rigidbody _rigidbody;
+        private Collider _collider;
+
+        private void Start()
         {
+            _rigidbody = GetComponent<Rigidbody>();
+            _collider = GetComponent<Collider>();
         }
 
-        private void OnMouseDrag()
+        public void Carry(Transform parentTransform)
         {
+            _hand = parentTransform;
+            _rigidbody.isKinematic = true;
+            _collider.isTrigger = true;
         }
 
-        private void OnMouseUp()
+        public void Drop()
         {
+            _hand = null;
+            _rigidbody.isKinematic = false;
+            _collider.isTrigger = false;
+        }
+
+        private void Update()
+        {
+            if (_hand != null)
+            {
+                transform.position = _hand.position;
+            }
         }
     }
 }
