@@ -4926,10 +4926,11 @@ Prefab:
       propertyPath: HeightPlane
       value: 
       objectReference: {fileID: 106210633}
-    - target: {fileID: 4602795614681934, guid: 2c94cda50cb6f8845bc90c4c758dd00d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2
-      objectReference: {fileID: 0}
+    - target: {fileID: 23424611879179318, guid: 2c94cda50cb6f8845bc90c4c758dd00d,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8d37720d7fe56543bd46dbee83a78b4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c94cda50cb6f8845bc90c4c758dd00d, type: 2}
   m_IsPrefabParent: 0

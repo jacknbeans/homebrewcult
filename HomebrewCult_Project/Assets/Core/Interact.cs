@@ -9,6 +9,9 @@ namespace Core
         public float TargetRotationLookAtClient = 285.0f;
         public float TransitionTime = 0.2f;
         public float Threshold;
+        public MeshRenderer HandRenderer;
+        public Material ClosedHandMat;
+        public Material OpenHandMat;
 
         private Interactable _interactableObject;
 
@@ -71,6 +74,7 @@ namespace Core
                 }
 
                 _interactableObject.Carry(transform);
+                HandRenderer.material = ClosedHandMat;
                 break;
             }
 
@@ -79,6 +83,7 @@ namespace Core
                 if (_interactableObject != null)
                 {
                     _interactableObject.Drop();
+                    HandRenderer.material = OpenHandMat;
                     _interactableObject = null;
                 }
             }

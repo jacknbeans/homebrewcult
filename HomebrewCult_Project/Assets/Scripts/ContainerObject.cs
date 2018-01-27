@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ContainerObject : MonoBehaviour {
+public class ContainerObject : GameplayBehaviour {
     public GameObject spawnObj;
     public Vector3 spawnVector;
     public float shakeBump;
