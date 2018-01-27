@@ -26,12 +26,6 @@ public class OuijaManager : MonoBehaviour {
 
     private void Awake()
     {
-        LetterIndices = new Dictionary<char, int>(OuijaLetters.Length);
-        // Creating the dictionary only needs to happen at the start
-        for (var i = 0; i < OuijaLetters.Length; ++i)
-        {
-            LetterIndices.Add(OuijaLetters[i].Letter, i);
-        }
     }
 
     private void GetNewWord()
@@ -64,6 +58,13 @@ public class OuijaManager : MonoBehaviour {
 
     void Start()
     {
+        LetterIndices = new Dictionary<char, int>(OuijaLetters.Length);
+        // Creating the dictionary only needs to happen at the start
+        for (var i = 0; i < OuijaLetters.Length; ++i)
+        {
+            LetterIndices.Add(OuijaLetters[i].Letter, i);
+        }
+
         GetNewWord();
         letter = GetLetter();
     }
