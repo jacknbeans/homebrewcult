@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ContainerObject : MonoBehaviour {
     public GameObject spawnObj;
+    public Vector3 spawnVector;
     public float shakeBump;
     public float timerBump;
     private Vector3 lastPosition;
@@ -25,7 +26,7 @@ public class ContainerObject : MonoBehaviour {
         {
             var newGameobject = Instantiate(spawnObj);
             newGameobject.transform.position = gameObject.transform.position + new Vector3(0,0.5f,0.1f);
-            newGameobject.transform.rotation = Quaternion.Euler(new Vector3(90,0,0));
+            newGameobject.transform.rotation = Quaternion.Euler(spawnVector + new Vector3(0, Random.Range(0, 180), 0));
             timer = 0f;
         }
         distance = 0f;

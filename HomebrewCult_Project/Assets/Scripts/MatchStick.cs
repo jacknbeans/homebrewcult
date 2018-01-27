@@ -4,35 +4,53 @@ using UnityEngine;
 
 public class MatchStick : MonoBehaviour {
 
-    public Rigidbody matchBody;
     public float lightBump;
+    public float flameDuration;
+    public Material burntMat;
+    public Renderer matchStickMat;
+    public ParticleSystem flameFx;
+
     private float distance;
-    public Vector3 lastPosition;
+    private Vector3 lastPosition;
     private bool stroking;
+    private bool isLit;
 
 	// Use this for initialization
 	void Start () {
-        lastPosition = transform.position;	
+        lastPosition = transform.position;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        //check speed and collision with strokey bit
         distance = Vector3.Distance(lastPosition, gameObject.transform.position);
-
-        if (distance >= lightBump)
+        lastPosition = gameObject.transform.position;
+        if (distance > lightBump && stroking)
         {
-            Debug.Log("fire!!!");
+            isLit = true;
         }
 
-        lastPosition = gameObject.transform.position;
+        //flame particle
+        if (isLit)
+        {
+            if (!flameFx.isPlaying)
+                flameFx.Play();
+        }
+        else
+        {
+            if (flameFx.isPlaying)
+                flameFx.Stop();
+        }
+
         stroking = false;
     }
 
-    void OnCollisionStay(Collision collision)
+    void OnTriggerStay(Collider collision)
     {
-        if (collision.collider.tag == "StrokeBit")
+        if (collision.gameObject.tag == "StrokeBit")
         {
-            //stroking = true;
+            stroking = true;
+            Debug.Log("touch");
         }
     }
 }
