@@ -8,7 +8,7 @@ public class Client_BodyMovement : MonoBehaviour {
     public AnimationCurve moveCurve;
     public Vector3 moveOffsetAmount;
     public float moveSpeed;
-    private float moveTimer;
+    public float moveTimer;
     private Vector3 moveStartPos;
 
     public bool isEye;
@@ -20,10 +20,10 @@ public class Client_BodyMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         thisSpriteRend = GetComponent<Renderer>();
-        thisSpriteRend.material = spriteArray[Random.Range(0, spriteArray.Length-1)];
+        if(spriteArray.Length > 1)
+            thisSpriteRend.material = spriteArray[Random.Range(0, spriteArray.Length)];
 
-        moveStartPos = transform.position;
-        
+        moveStartPos = transform.localPosition;
 	}
 	
 	// Update is called once per frame
@@ -37,7 +37,7 @@ public class Client_BodyMovement : MonoBehaviour {
         if (moveTimer > 1)
             moveTimer = 0;
         //wavey movement change position
-        transform.position = moveStartPos + (moveOffsetAmount * moveCurve.Evaluate(moveTimer));
+        transform.localPosition = moveStartPos + (transform.InverseTransformVector(moveOffsetAmount * moveCurve.Evaluate(moveTimer)));
 	}
 
     void EyeSprite()
