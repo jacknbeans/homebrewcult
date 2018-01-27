@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd7091f66f08ed43ab648d4c609ffec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropSpeed: 5
   HeightPlane: {fileID: 0}
-  HeightPlaneMin: -2
   OverlapSphereRadius: 0.2
+  TargetRotationLookAtClient: 90
+  TransitionTime: 0.2
+  Threshold: 0.05
