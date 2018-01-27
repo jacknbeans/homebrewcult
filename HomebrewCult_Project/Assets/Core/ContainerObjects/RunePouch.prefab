@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObj: {fileID: 1194367289246534, guid: 907d5746c2915e346b694d873ad21b9a, type: 2}
-  shakeBump: 0.1
-  timerBump: 0
+  shakeBump: 0.3
+  timerBump: 5
 --- !u!114 &114387050253080982
 MonoBehaviour:
   m_ObjectHideFlags: 1
