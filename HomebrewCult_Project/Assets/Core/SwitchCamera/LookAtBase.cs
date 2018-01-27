@@ -9,6 +9,7 @@ namespace Core.SwitchCamera
         public float CameraAngle;
         public float TransitionTime = 0.3f;
         public LookAtBase OtherLookAt;
+        public Interact HandRef;
 
         protected bool StartTransition;
 
@@ -45,6 +46,7 @@ namespace Core.SwitchCamera
         public void OnPointerEnter(PointerEventData eventData)
         {
             StartTransition = true;
+            HandRef.StartTransition();
         }
     }
 }
