@@ -51,7 +51,7 @@ namespace Core
 
             layers = new[] {"InteractableObjects"};
             layerMask = LayerMask.GetMask(layers);
-            var touchingInteractableObjects = Input.GetMouseButton(0)
+            var touchingInteractableObjects = Input.GetMouseButton(0) && _interactableObject == null
                 ? Physics.OverlapSphere(transform.position, OverlapSphereRadius, layerMask)
                 : new Collider[] { };
 
@@ -73,6 +73,7 @@ namespace Core
                 if (_interactableObject != null)
                 {
                     _interactableObject.Drop();
+                    _interactableObject = null;
                 }
             }
         }
