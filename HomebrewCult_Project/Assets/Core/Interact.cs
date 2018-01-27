@@ -12,7 +12,6 @@ namespace Core
         public MeshRenderer HandRenderer;
         public Material ClosedHandMat;
         public Material OpenHandMat;
-        const ;lkajsdf;lkj
 
         private Interactable _interactableObject;
 
