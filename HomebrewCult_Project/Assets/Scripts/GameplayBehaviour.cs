@@ -11,11 +11,11 @@ public class GameplayBehaviour : MonoBehaviour
 
     protected void Stress(float amount)
     {
-        
+        StressChannelMan.AffectStressLevel(amount);
     }
 
     protected void Channel(float amount)
     {
-        
+        StressChannelMan.AffectChannelLevel(amount);
     }
 }

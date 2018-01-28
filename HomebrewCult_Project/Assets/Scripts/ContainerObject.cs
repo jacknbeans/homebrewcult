@@ -11,6 +11,9 @@ public class ContainerObject : GameplayBehaviour {
     private float distance;
     private float timer;
     private Transform spawnTransform;
+
+    private float _timer;
+
 	// Use this for initialization
 	void Start () {
         distance = 0f;
@@ -18,7 +21,15 @@ public class ContainerObject : GameplayBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+	    _timer += Time.deltaTime;
+	    if (_timer >= 0.3f)
+	    {
+	        Stress(Random.Range(-50.0f, 50.0f));
+	        _timer = 0.0f;
+	    }
+
         distance = Vector3.Distance(lastPosition, gameObject.transform.position);
         timer += 1f;
        
