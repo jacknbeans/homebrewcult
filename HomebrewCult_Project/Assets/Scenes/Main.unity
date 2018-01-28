@@ -549,11 +549,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d00379164277b754d8f7e7d3ff604aa3, type: 2}
   m_IsPrefabParent: 0
---- !u!23 &398610358 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 23949544573541548, guid: 088923d8e21a2ad439317746d0766e51,
-    type: 2}
-  m_PrefabInternal: {fileID: 1663705972}
 --- !u!114 &412400082 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114569957400646548, guid: a14985c680da77044bf4da4089fe3a85,
@@ -4943,15 +4938,6 @@ Prefab:
     - target: {fileID: 4391398218501178, guid: 088923d8e21a2ad439317746d0766e51, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114617610986411042, guid: 088923d8e21a2ad439317746d0766e51,
-        type: 2}
-      propertyPath: meshRend
-      value: 
-      objectReference: {fileID: 398610358}
-    - target: {fileID: 4391398218501178, guid: 088923d8e21a2ad439317746d0766e51, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 088923d8e21a2ad439317746d0766e51, type: 2}
