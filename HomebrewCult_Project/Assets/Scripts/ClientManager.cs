@@ -16,7 +16,7 @@ public class ClientManager : MonoBehaviour {
 
     private bool ghostSummoned;
     private bool dialogRead;
-    private bool playerSpeaking;
+    private bool playerSpeaking = false;
 
     public GameObject clientPrefab;
     public Vector3 clientPos;
@@ -82,17 +82,17 @@ public class ClientManager : MonoBehaviour {
 
     void SummonGhost()
     {
+        playerSpeaking = false;
         ghostSummoned = true;
         chosenText = responseString[Random.Range(0, responseString.Length)];
         dialogRead = false;
         currentCharacterInt = 0;
-        playerSpeaking = true;
     }
 
     void NextClient()
     {
         currentClient.completed = true;
-        playerSpeaking = false;
+        playerSpeaking = true;
         SpawnClient();
     }
 
@@ -106,11 +106,11 @@ public class ClientManager : MonoBehaviour {
             if (currentCharacterInt < chosenText.Length)
             {
                 currentCharacterInt++;
-                playSound = false;
+                playSound = true;
             }
             else
             {
-                playSound = true;
+                playSound = false;
             }
         }
         
