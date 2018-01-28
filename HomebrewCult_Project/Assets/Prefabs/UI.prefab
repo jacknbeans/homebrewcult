@@ -381,6 +381,10 @@ MonoBehaviour:
   TransitionTime: 0.2
   OtherLookAt: {fileID: 114210683270884602}
   HandRef: {fileID: 0}
+  FlashingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  StartDelay: 5
+  FlashingSpeed: 2
+  TheClientManager: {fileID: 0}
 --- !u!114 &114820619164453462
 MonoBehaviour:
   m_ObjectHideFlags: 1

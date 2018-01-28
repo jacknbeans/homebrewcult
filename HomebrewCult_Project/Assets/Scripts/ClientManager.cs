@@ -29,6 +29,7 @@ public class ClientManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         SpawnClient();
+	    dialogRead = true;
         dialogTextBox.text = " ";
         blaSound = gameObject.GetComponent<AudioSource>();
 	}
@@ -42,10 +43,10 @@ public class ClientManager : MonoBehaviour {
             if (soundTimer >= 0.15f && playSound == true)
             {
                 BlaSound();
-                soundTimer = 0.0f;
             }
+                soundTimer = 0.0f;
         }
-        if(Input.GetMouseButtonDown(0))
+        /*if(Input.GetMouseButtonDown(0))
         {
             if(!ghostSummoned)
             {
@@ -67,10 +68,29 @@ public class ClientManager : MonoBehaviour {
                 else
                     NextClient();
             }
-        }
+        }*/
 	}
 
-    void SpawnClient()
+    public void StartDialogue()
+    {
+        dialogRead = false;
+    }
+
+    public void DialogRead()
+    {
+        if (!ghostSummoned)
+        {
+            dialogTextBox.text = " ";
+            dialogRead = true;
+        }
+        else
+        {
+            dialogTextBox.text = " ";
+            NextClient();
+        }
+    }
+
+    public void SpawnClient()
     {
         currentClient = Instantiate(clientPrefab, clientPos, Quaternion.identity, null).GetComponent<Client_Core>();
         currentClient.rootPos = clientPos;
@@ -80,7 +100,7 @@ public class ClientManager : MonoBehaviour {
         currentCharacterInt = 0;
     }
 
-    void SummonGhost()
+    public void SummonGhost()
     {
         playerSpeaking = false;
         ghostSummoned = true;
@@ -89,14 +109,14 @@ public class ClientManager : MonoBehaviour {
         currentCharacterInt = 0;
     }
 
-    void NextClient()
+    public void NextClient()
     {
         currentClient.completed = true;
         playerSpeaking = true;
         SpawnClient();
     }
 
-    void UpdateText()
+    public void UpdateText()
     {
         dialogTextBox.text = chosenText.Substring(0, currentCharacterInt);
         nextCharacterTimer -= Time.deltaTime;

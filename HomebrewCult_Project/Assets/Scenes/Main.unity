@@ -704,15 +704,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4788487711105234, guid: a14985c680da77044bf4da4089fe3a85, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.1114502
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4788487711105234, guid: a14985c680da77044bf4da4089fe3a85, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.32177734
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4788487711105234, guid: a14985c680da77044bf4da4089fe3a85, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.34375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4788487711105234, guid: a14985c680da77044bf4da4089fe3a85, type: 2}
       propertyPath: m_LocalRotation.x
@@ -744,6 +744,11 @@ Prefab:
       propertyPath: HandRef
       value: 
       objectReference: {fileID: 104438287}
+    - target: {fileID: 114610998997881114, guid: a14985c680da77044bf4da4089fe3a85,
+        type: 2}
+      propertyPath: TheClientManager
+      value: 
+      objectReference: {fileID: 1034331508}
     - target: {fileID: 114210683270884602, guid: a14985c680da77044bf4da4089fe3a85,
         type: 2}
       propertyPath: CameraRig
@@ -1088,6 +1093,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4056483885588444, guid: 506612d52b60e274abc7477c68f3dd4a,
     type: 2}
   m_PrefabInternal: {fileID: 649386422}
+--- !u!114 &1034331508 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114577065786930178, guid: ae50f02bc8071b64a95bd67e9f402800,
+    type: 2}
+  m_PrefabInternal: {fileID: 2048147276}
+  m_Script: {fileID: 11500000, guid: 6a54d76d910c4bb4f8649585d9361fde, type: 3}
 --- !u!114 &1112293949 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114210683270884602, guid: a14985c680da77044bf4da4089fe3a85,

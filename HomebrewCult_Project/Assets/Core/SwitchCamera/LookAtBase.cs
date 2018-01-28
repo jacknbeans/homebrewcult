@@ -14,7 +14,7 @@ namespace Core.SwitchCamera
         protected bool StartTransition;
 
         private float _velocity;
-        private float _threshold = 0.07f;
+        protected float _threshold = 0.07f;
 
         private void Update()
         {
