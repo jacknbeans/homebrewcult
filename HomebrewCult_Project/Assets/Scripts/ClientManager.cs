@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClientManager : MonoBehaviour {
-
+public class ClientManager : MonoBehaviour
+{
     public string[] requestString;
     public string[] responseString;
 
@@ -25,6 +25,8 @@ public class ClientManager : MonoBehaviour {
     private float soundTimer;
     private AudioSource blaSound;
     private bool playSound;
+
+    private bool summoning;
 
 	// Use this for initialization
 	void Start () {
@@ -82,12 +84,21 @@ public class ClientManager : MonoBehaviour {
         {
             dialogTextBox.text = " ";
             dialogRead = true;
+            summoning = true;
         }
         else
         {
-            dialogTextBox.text = " ";
-            NextClient();
+            if (!summoning)
+            {
+                dialogTextBox.text = " ";
+                NextClient();
+            }
         }
+    }
+
+    public void FinishedSummoning()
+    {
+        summoning = false;
     }
 
     public void SpawnClient()

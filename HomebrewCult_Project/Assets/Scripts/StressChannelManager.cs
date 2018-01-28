@@ -47,6 +47,7 @@ public class StressChannelManager : MonoBehaviour
         {
             TheClientManager.SummonGhost();
             _counterLevel[ChannelIndex] = -MaxLevel;
+            TheClientManager.FinishedSummoning();
         }
     }
 
