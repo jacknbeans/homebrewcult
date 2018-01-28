@@ -257,7 +257,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2, z: 1}
+  m_Size: {x: 0.3, y: 0.3, z: 1}
   m_Center: {x: 0.04, y: -0.175, z: 0}
 --- !u!108 &108552101088130074
 Light:
@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e141106ec85b6d42a2e34fe6dba8854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stressAmount: 1
   timeDurationBetween: {x: 10, y: 30}
   flickerDelay: {x: 0.3, y: 0.5}
   minMaxIntensity: {x: 1, y: 1.5}

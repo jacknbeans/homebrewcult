@@ -78,6 +78,11 @@ public class ClientManager : MonoBehaviour
         dialogRead = false;
     }
 
+    public bool IsSummoning()
+    {
+        return summoning;
+    }
+
     public void DialogRead()
     {
         if (!ghostSummoned)

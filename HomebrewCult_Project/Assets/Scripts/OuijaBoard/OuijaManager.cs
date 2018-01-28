@@ -28,6 +28,8 @@ public class OuijaManager : GameplayBehaviour {
 
     private OuijaLetter letter;
 
+    private ClientManager _clientManager;
+
     private void GetNewWord()
     {
         // Reset text and the word
@@ -57,7 +59,10 @@ public class OuijaManager : GameplayBehaviour {
         // Do this each time a new letter is needed for the planchette
         if (charIndex >= characters.Length)
         {
-            Channel(channelPoints);
+            if (_clientManager.IsSummoning())
+            {
+                Channel(channelPoints);
+            }
             charIndex = 0;
             return null;
         }
@@ -76,6 +81,12 @@ public class OuijaManager : GameplayBehaviour {
 
     void Start()
     {
+        _clientManager = FindObjectOfType<ClientManager>();
+        if (_clientManager == null)
+        {
+            Debug.LogError("There should be a client manager in the scene!");
+        }
+
         // Creating the dictionary only needs to happen at the start
         LetterIndices = new Dictionary<char, int>(OuijaLetters.Length);
         for (var i = 0; i < OuijaLetters.Length; ++i)
