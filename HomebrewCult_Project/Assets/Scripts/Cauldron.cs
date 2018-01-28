@@ -14,14 +14,13 @@ public class Cauldron : GameplayBehaviour
     private float hangryValue = 255.0f;
     private float maxValue = 255.0f;
     private RuneStone fedStone;
-    private MeshRenderer _meshRend;
+    public MeshRenderer meshRend;
     public GameObject splashPrefab;
     private GameObject spawnedSplash;
 
 	// Use this for initialization
 	void Start ()
     {
-        _meshRend = GetComponent<MeshRenderer>();
     }
 	
 	// Update is called once per frame
@@ -31,7 +30,7 @@ public class Cauldron : GameplayBehaviour
 
         cauldronColor.g = Mathf.Clamp(hangryValue / maxValue, 0.0f, 1.0f);
         cauldronColor.b = Mathf.Clamp(hangryValue / maxValue, 0.0f, 1.0f);
-        _meshRend.material.color = cauldronColor;
+        meshRend.material.color = cauldronColor;
 
         if (hangryValue <= 0.0f)
         {

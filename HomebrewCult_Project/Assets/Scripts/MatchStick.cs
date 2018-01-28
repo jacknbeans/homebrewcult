@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MatchStick : MonoBehaviour {
 
+    public float lifetime = 10;
+
     public float lightBump;
     public float flameDuration;
     public Material burntMat;
@@ -18,6 +20,7 @@ public class MatchStick : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         lastPosition = transform.position;
+        Destroy(transform.parent.gameObject, lifetime);
 	}
 	
 	// Update is called once per frame

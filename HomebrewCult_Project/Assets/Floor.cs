@@ -15,10 +15,10 @@ public class Floor : MonoBehaviour {
 		
 	}
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerStay(Collider collision)
     {
         hitObject = collision.gameObject;
-        if (hitObject.tag == "Essential")
+        if (hitObject.CompareTag("Essential"))
         {
             var respawnPosition = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-0.2f, 0.1f));
             hitObject.transform.position = respawnChild.transform.position + respawnPosition;
