@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 23014439695697578}
   m_Layer: 10
   m_Name: RuneStone
-  m_TagString: Interactable
+  m_TagString: RuneStone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

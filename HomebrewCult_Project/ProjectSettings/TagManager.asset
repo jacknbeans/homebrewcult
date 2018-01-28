@@ -8,6 +8,7 @@ TagManager:
   - StrokeBit
   - Candle
   - Essential
+  - RuneStone
   layers:
   - Default
   - TransparentFX
