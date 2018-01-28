@@ -18,9 +18,12 @@ public class Cauldron : GameplayBehaviour
     public GameObject splashPrefab;
     private GameObject spawnedSplash;
 
+    private AudioSource splashSound;
+
 	// Use this for initialization
 	void Start ()
     {
+        splashSound = gameObject.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -55,6 +58,9 @@ public class Cauldron : GameplayBehaviour
                 spawnedSplash = Instantiate(splashPrefab, hitObject.transform.position + new Vector3(0, 0.3f, 0), Quaternion.Euler(0,0,0));
                 var mainSplash = spawnedSplash.GetComponent<ParticleSystem>().main;
                 mainSplash.startColor = Color.green;
+                splashSound.pitch = 1.0f;
+                splashSound.Play();
+
             }
             else
             {
@@ -62,6 +68,8 @@ public class Cauldron : GameplayBehaviour
                 spawnedSplash = Instantiate(splashPrefab, hitObject.transform.position + new Vector3(0, 0.3f, 0), Quaternion.Euler(0, 0, 0));
                 var mainSplash = spawnedSplash.GetComponent<ParticleSystem>().main;
                 mainSplash.startColor = Color.red;
+                splashSound.pitch = 0.7f;
+                splashSound.Play();
             }
             Destroy(hitObject);
         }
