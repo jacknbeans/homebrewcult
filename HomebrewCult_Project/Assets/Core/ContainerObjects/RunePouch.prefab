@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 65881832708572756}
   m_Layer: 10
   m_Name: RunePouch
-  m_TagString: Interactable
+  m_TagString: Essential
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
