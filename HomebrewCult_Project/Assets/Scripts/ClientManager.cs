@@ -24,6 +24,7 @@ public class ClientManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         SpawnClient();
+	    dialogRead = true;
         dialogTextBox.text = " ";
 	}
 	
@@ -31,7 +32,8 @@ public class ClientManager : MonoBehaviour {
 	void Update () {
         if(!dialogRead)
             UpdateText();
-        if(Input.GetMouseButtonDown(0))
+
+        /*if(Input.GetMouseButtonDown(0))
         {
             if(!ghostSummoned)
             {
@@ -53,10 +55,29 @@ public class ClientManager : MonoBehaviour {
                 else
                     NextClient();
             }
-        }
+        }*/
 	}
 
-    void SpawnClient()
+    public void StartDialogue()
+    {
+        dialogRead = false;
+    }
+
+    public void DialogRead()
+    {
+        if (!ghostSummoned)
+        {
+            dialogTextBox.text = " ";
+            dialogRead = true;
+        }
+        else
+        {
+            dialogTextBox.text = " ";
+            NextClient();
+        }
+    }
+
+    public void SpawnClient()
     {
         currentClient = Instantiate(clientPrefab, clientPos, Quaternion.identity, null).GetComponent<Client_Core>();
         currentClient.rootPos = clientPos;
@@ -66,7 +87,7 @@ public class ClientManager : MonoBehaviour {
         currentCharacterInt = 0;
     }
 
-    void SummonGhost()
+    public void SummonGhost()
     {
         ghostSummoned = true;
         chosenText = responseString[Random.Range(0, responseString.Length)];
@@ -74,13 +95,13 @@ public class ClientManager : MonoBehaviour {
         currentCharacterInt = 0;
     }
 
-    void NextClient()
+    public void NextClient()
     {
         currentClient.completed = true;
         SpawnClient();
     }
 
-    void UpdateText()
+    public void UpdateText()
     {
         dialogTextBox.text = chosenText.Substring(0, currentCharacterInt);
         nextCharacterTimer -= Time.deltaTime;

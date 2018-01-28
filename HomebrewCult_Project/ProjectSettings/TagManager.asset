@@ -9,6 +9,8 @@ TagManager:
   - Candle
   - Essential
   - RuneStone
+  - Client
+  - Hand
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - HandHeightPlane
   - Hand
   - InteractableObjects
-  - 
+  - Client
   - 
   - 
   - 
