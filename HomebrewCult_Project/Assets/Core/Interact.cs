@@ -121,5 +121,10 @@ namespace Core
             Gizmos.DrawWireSphere(transform.position, OverlapSphereRadius);
             Gizmos.color = Color.white;
         }
+
+        public bool IsHoldingObject()
+        {
+            return _interactableObject != null;
+        }
     }
 }

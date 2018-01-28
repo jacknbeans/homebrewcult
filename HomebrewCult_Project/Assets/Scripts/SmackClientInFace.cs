@@ -17,6 +17,18 @@ public class SmackClientInFace : MonoBehaviour
     {
         if (other.CompareTag("Hand"))
         {
+            var interact = other.GetComponent<Core.Interact>();
+            if (interact == null)
+            {
+                Debug.LogError("No Interact script attached to game object tagged with Hand!");
+                return;
+            }
+
+            if (interact.IsHoldingObject())
+            {
+                return;
+            }
+
             _clientManager.DialogRead();
         }
     }

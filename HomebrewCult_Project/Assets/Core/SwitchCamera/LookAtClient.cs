@@ -19,8 +19,6 @@ namespace Core.SwitchCamera
 
         private bool _firstTime = true;
 
-        private float _velocity;
-
         private void Start()
         {
             _image = GetComponent<Image>();
@@ -50,7 +48,6 @@ namespace Core.SwitchCamera
                 {
                     _pingPong += Time.deltaTime;
                     var value = Mathf.PingPong(_pingPong * FlashingSpeed, 1.0f);
-                    print(value);
                     _image.color = Color.Lerp(_initialImageColor, FlashingColor, value);
                 }
             }
