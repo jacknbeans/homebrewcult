@@ -56,7 +56,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971560457158050}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.144, y: -1.57, z: -1.265}
   m_LocalScale: {x: 1.2087793, y: 1.2087792, z: 1.2087792}
   m_Children:
@@ -198,6 +198,8 @@ MonoBehaviour:
   nomValue: 40
   badnomValue: 50
   cauldronColor: {r: 1, g: 1, b: 1, a: 1}
+  splashPrefab: {fileID: 1978401703914092, guid: 33c6204e03cdefd4a82e8abb2b587309,
+    type: 2}
 --- !u!198 &198021908052655064
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -258,7 +260,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 743939458
+  randomSeed: 1584640064
   InitialModule:
     serializedVersion: 3
     enabled: 1
