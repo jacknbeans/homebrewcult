@@ -826,7 +826,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1979330362593454}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.008726465, z: 0, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0, z: -2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -835,7 +835,7 @@ Transform:
   - {fileID: 4129377340852956}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -2, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -1, z: 0}
 --- !u!4 &4807863309684666
 Transform:
   m_ObjectHideFlags: 1
@@ -1375,20 +1375,20 @@ MonoBehaviour:
   - {fileID: 114923952164147350}
   - {fileID: 114422432465232154}
   OuijaSpellingText: {fileID: 102139372329839274}
-  words:
-  - DEATH
+  goodWords:
   - DEAR
-  - KILL
   - KIND
-  - LOST
   - LOVE
-  - REAPER
-  - RESPECT
+  badWords:
+  - DEATH
+  - KILL
+  - LOST
   planchette: {fileID: 0}
   timeBetweenLetters: 0.5
   timeStayingOnLetters: 1
   timeBetweenWords: 3
-  timeBetweenNewGhosts: 0
+  timeStranglingPlanchetteRequired: 3.5
+  channelPoints: 30
   threshold: 0.01
 --- !u!114 &114797915816407050
 MonoBehaviour:
