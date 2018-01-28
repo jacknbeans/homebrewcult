@@ -7,6 +7,10 @@ public class GameplayBehaviour : MonoBehaviour
     private void Awake()
     {
         StressChannelMan = FindObjectOfType<StressChannelManager>();
+        if (StressChannelMan == null)
+        {
+            Debug.LogError("There should be one StressChannelManager in the scene!");
+        }
     }
 
     protected void Stress(float amount)

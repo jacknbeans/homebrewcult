@@ -198,6 +198,7 @@ MonoBehaviour:
   nomValue: 40
   badnomValue: 50
   cauldronColor: {r: 1, g: 1, b: 1, a: 1}
+  stressToAdd: 0.05
   splashPrefab: {fileID: 1978401703914092, guid: 33c6204e03cdefd4a82e8abb2b587309,
     type: 2}
 --- !u!198 &198021908052655064
@@ -260,7 +261,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1584640064
+  randomSeed: 1823581557
   InitialModule:
     serializedVersion: 3
     enabled: 1
