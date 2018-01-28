@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Candle : MonoBehaviour {
+public class Candle : GameplayBehaviour {
+
+    public float stressAmount = 1;
 
     public Vector2 timeDurationBetween;
     private float remainingLitTime;
@@ -42,6 +44,10 @@ public class Candle : MonoBehaviour {
                 flameFx.Stop();
                 isLit = false;
             }
+        }
+        else
+        {
+            Stress(-stressAmount * Time.deltaTime);
         }
 	}
 
