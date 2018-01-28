@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OuijaManager : MonoBehaviour {
+public class OuijaManager : GameplayBehaviour {
 
     public OuijaLetter[] OuijaLetters;
     public TextMesh OuijaSpellingText;
-    
-    public string[] words;
+
+    public string[] goodWords;
+    public string[] badWords;
     private int charIndex;
     private char[] characters;
 
@@ -19,21 +20,36 @@ public class OuijaManager : MonoBehaviour {
     public float timeBetweenLetters;
     public float timeStayingOnLetters;
     public float timeBetweenWords;
-    public float timeBetweenNewGhosts;
+    public float timeStranglingPlanchetteRequired;
+    [Range(10, 50)]
+    public float channelPoints;
+    private float timer;
     public float threshold;
 
     private OuijaLetter letter;
 
-    private void Awake()
-    {
-    }
-
     private void GetNewWord()
     {
-        // Do this each time a new word is needed for the planchette
-        var word = words[Random.Range(0, words.Length)];
-        characters = word.ToCharArray();
+        // Reset text and the word
+        charIndex = 0;
         OuijaSpellingText.text = null;
+
+        // Do this each time a new word is needed for the planchette
+        float randomWord = Random.Range(0.0f, 1.0f);
+        if (randomWord > 0.5f)
+        {
+            // Good words
+            var word = goodWords[Random.Range(0, goodWords.Length)];
+            characters = word.ToCharArray();
+            channelPoints = Mathf.Abs(channelPoints);
+        }
+        else
+        {
+            // Bad words
+            var word = badWords[Random.Range(0, badWords.Length)];
+            characters = word.ToCharArray();
+            channelPoints = -Mathf.Abs(channelPoints);
+        }
     }
 
     private OuijaLetter GetLetter()
@@ -41,9 +57,11 @@ public class OuijaManager : MonoBehaviour {
         // Do this each time a new letter is needed for the planchette
         if (charIndex >= characters.Length)
         {
+            Channel(channelPoints);
             charIndex = 0;
             return null;
         }
+        timer = 0;
         letterIndex = LetterIndices[characters[charIndex++]];
         return OuijaLetters[letterIndex];
     }
@@ -58,8 +76,8 @@ public class OuijaManager : MonoBehaviour {
 
     void Start()
     {
-        LetterIndices = new Dictionary<char, int>(OuijaLetters.Length);
         // Creating the dictionary only needs to happen at the start
+        LetterIndices = new Dictionary<char, int>(OuijaLetters.Length);
         for (var i = 0; i < OuijaLetters.Length; ++i)
         {
             LetterIndices.Add(OuijaLetters[i].Letter, i);
@@ -86,6 +104,13 @@ public class OuijaManager : MonoBehaviour {
         {
             planchette.Move(letter.transform, timeBetweenLetters);
 
+            timer += Time.deltaTime;
+            if (timer >= timeStranglingPlanchetteRequired)
+            {
+                GetNewWord();
+                letter = GetLetter();
+                timer = 0;
+            }
             // Do this when the planchette is near the letter it moves to
             if ((letter.transform.position - planchette.transform.position).magnitude <= threshold)
             {
