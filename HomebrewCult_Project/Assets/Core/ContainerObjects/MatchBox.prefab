@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4315483230658692}
   - component: {fileID: 33758437621089338}
   - component: {fileID: 23230855233521572}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4325517923084540}
   - component: {fileID: 65891536766669370}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Strokebit
   m_TagString: StrokeBit
   m_Icon: {fileID: 0}

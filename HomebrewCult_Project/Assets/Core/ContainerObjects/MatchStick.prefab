@@ -149,7 +149,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a9d8c8e1e339f0b47b27f3209604a73d, type: 2}
+  - {fileID: 2100000, guid: f029854e04e163c41bd12630177ace43, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -189,7 +189,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &65079016327128572
 BoxCollider:
@@ -237,10 +237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019007fd531500240b80e09613314aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightBump: 0
-  flameDuration: 0
-  burntMat: {fileID: 0}
-  matchStickMat: {fileID: 0}
+  lightBump: 0.2
+  flameDuration: 5
+  burntMat: {fileID: 2100000, guid: bbe7e80d98b20b643ba601bf9a486cdd, type: 2}
+  matchStickMat: {fileID: 23034063401691260}
   flameFx: {fileID: 198770159919925374}
 --- !u!198 &198770159919925374
 ParticleSystem:
@@ -302,7 +302,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -656285257
+  randomSeed: -333506584
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -454,7 +454,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2

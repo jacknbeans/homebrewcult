@@ -28,11 +28,13 @@ public class MatchStick : MonoBehaviour {
         if (distance > lightBump && stroking)
         {
             isLit = true;
+            matchStickMat.material = burntMat;
         }
 
         //flame particle
-        if (isLit)
+        if (isLit && flameDuration > 0)
         {
+            flameDuration -= Time.deltaTime;
             if (!flameFx.isPlaying)
                 flameFx.Play();
         }
@@ -41,7 +43,6 @@ public class MatchStick : MonoBehaviour {
             if (flameFx.isPlaying)
                 flameFx.Stop();
         }
-
         stroking = false;
     }
 
@@ -51,6 +52,10 @@ public class MatchStick : MonoBehaviour {
         {
             stroking = true;
             Debug.Log("touch");
+        }
+        if (collision.gameObject.tag == "Candle")
+        {
+            collision.gameObject.GetComponent<Candle>().GetLit();
         }
     }
 }

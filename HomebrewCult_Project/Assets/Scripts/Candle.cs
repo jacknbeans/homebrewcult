@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RuneStone : MonoBehaviour {
-    public Sprite[] images;
+public class Candle : MonoBehaviour {
 
+    public Vector2 timeDurationBetween
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<SpriteRenderer>().sprite = images[Random.Range(0, images.Length)];
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void GetLit()
+    {
+
+    }
 }
