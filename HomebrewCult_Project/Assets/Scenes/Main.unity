@@ -744,6 +744,11 @@ Prefab:
       propertyPath: HandRef
       value: 
       objectReference: {fileID: 104438287}
+    - target: {fileID: 114610998997881114, guid: a14985c680da77044bf4da4089fe3a85,
+        type: 2}
+      propertyPath: TheClientManager
+      value: 
+      objectReference: {fileID: 1034331508}
     - target: {fileID: 114210683270884602, guid: a14985c680da77044bf4da4089fe3a85,
         type: 2}
       propertyPath: CameraRig
@@ -754,11 +759,6 @@ Prefab:
       propertyPath: HandRef
       value: 
       objectReference: {fileID: 104438287}
-    - target: {fileID: 114610998997881114, guid: a14985c680da77044bf4da4089fe3a85,
-        type: 2}
-      propertyPath: TheClientManager
-      value: 
-      objectReference: {fileID: 1034331508}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a14985c680da77044bf4da4089fe3a85, type: 2}
   m_IsPrefabParent: 0
