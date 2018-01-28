@@ -26,6 +26,8 @@ public class OuijaManager : GameplayBehaviour {
     private float timer;
     public float threshold;
 
+    private AudioSource badWordSound;
+
     private OuijaLetter letter;
 
     private ClientManager _clientManager;
@@ -62,7 +64,12 @@ public class OuijaManager : GameplayBehaviour {
             if (_clientManager.IsSummoning())
             {
                 Channel(channelPoints);
+                if (channelPoints < 0.0f)
+                {
+                    badWordSound.Play();
+                }
             }
+
             charIndex = 0;
             return null;
         }
@@ -81,6 +88,7 @@ public class OuijaManager : GameplayBehaviour {
 
     void Start()
     {
+        badWordSound = GetComponent<AudioSource>();
         _clientManager = FindObjectOfType<ClientManager>();
         if (_clientManager == null)
         {
