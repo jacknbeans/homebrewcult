@@ -68,12 +68,10 @@ public class OuijaManager : GameplayBehaviour {
                 if (channelPoints < 0.0f)
                 {
                     badWordSound.Play();
-                    Debug.Log("bad");
                 }
                 else
                 {
                     goodWordSound.Play();
-                    Debug.Log("good");
                 }
             }
 
