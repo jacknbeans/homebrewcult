@@ -17,10 +17,13 @@ public class MatchStick : MonoBehaviour {
     private bool stroking;
     private bool isLit;
 
+    private AudioSource matchSound;
+
 	// Use this for initialization
 	void Start () {
         lastPosition = transform.position;
         Destroy(transform.parent.gameObject, lifetime);
+        matchSound = gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -39,7 +42,12 @@ public class MatchStick : MonoBehaviour {
         {
             flameDuration -= Time.deltaTime;
             if (!flameFx.isPlaying)
+            {
                 flameFx.Play();
+                matchSound.Play();
+            }
+
+
         }
         else
         {
