@@ -26,7 +26,7 @@ public class StressChannelManager : MonoBehaviour
 
     private void Start()
     {
-        _counterLevel = new[] {0.0f, -50.0f};
+        _counterLevel = new[] {0.0f, -MaxLevel};
         // The _numCountersDivisor is equal to 2x the length of the counter level array multiplied by the MaxLevel
         // This is because each counter takes up a range from -MaxLevel to MaxLevel
         _numCountersDivisor = _counterLevel.Length * 2.0f * MaxLevel;
@@ -46,6 +46,7 @@ public class StressChannelManager : MonoBehaviour
         if (lerpT >= PercentToSucceed)
         {
             TheClientManager.SummonGhost();
+            _counterLevel[ChannelIndex] = -MaxLevel;
         }
     }
 
