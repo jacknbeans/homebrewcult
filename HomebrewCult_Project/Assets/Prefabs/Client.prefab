@@ -490,13 +490,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteArray:
-  - {fileID: 2100000, guid: cc795d10709072f43abbda153cc9190a, type: 2}
   - {fileID: 2100000, guid: 30a998d01e8797e4e8e7b92bfd9d0f89, type: 2}
   - {fileID: 2100000, guid: 15fe9a4473fd6864eb47a84863241475, type: 2}
   - {fileID: 2100000, guid: 8435f1c655db61d4fbc0c2333a0f4f0a, type: 2}
   - {fileID: 2100000, guid: 57f84cc83c1192f41bbe4d7afb841220, type: 2}
   - {fileID: 2100000, guid: 7aefe0004727a7c46962de864a647ae6, type: 2}
   - {fileID: 2100000, guid: f22c51c92a944c2458642c4411942339, type: 2}
+  - {fileID: 2100000, guid: cc795d10709072f43abbda153cc9190a, type: 2}
+  - {fileID: 2100000, guid: cc795d10709072f43abbda153cc9190a, type: 2}
+  - {fileID: 2100000, guid: b6f60156ea877d5489ebd4f2897f4ef2, type: 2}
+  - {fileID: 2100000, guid: dc14f7b373a74934ebb4a1c1f48c1af7, type: 2}
+  - {fileID: 2100000, guid: 193159e00196d574ab3c57134b8b4baa, type: 2}
+  - {fileID: 2100000, guid: fb960de9c45dc0e44a53ae4d92e99abc, type: 2}
   moveCurve:
     serializedVersion: 2
     m_Curve:
@@ -768,7 +773,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6635a3ef8c5d241b76d8bc93dbb45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteArray: []
+  spriteArray:
+  - {fileID: 2100000, guid: 3b212e7aefd1dbb43aa115a655b29e11, type: 2}
+  - {fileID: 2100000, guid: 0932e8a047062254980b1e1f050ec29a, type: 2}
+  - {fileID: 2100000, guid: 0ea1c8044e28b9d45a794da61b428b14, type: 2}
+  - {fileID: 2100000, guid: 4c34d62be7c25cc4a97d00768c655176, type: 2}
+  - {fileID: 2100000, guid: 48d32502a5a7af94993839c41af1af4d, type: 2}
+  - {fileID: 2100000, guid: 38bd1799fdc347544809b3aca097fc75, type: 2}
+  - {fileID: 2100000, guid: 8ae6645554a73d443aea169ece724820, type: 2}
+  - {fileID: 2100000, guid: c0041ed620213cd4084a5023965e571c, type: 2}
   moveCurve:
     serializedVersion: 2
     m_Curve:

@@ -51,7 +51,6 @@ public class MatchStick : MonoBehaviour {
         if (collision.gameObject.tag == "StrokeBit")
         {
             stroking = true;
-            Debug.Log("touch");
         }
         if (collision.gameObject.tag == "Candle")
         {

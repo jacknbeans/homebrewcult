@@ -11,24 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1729919999674204}
   m_IsPrefabParent: 1
---- !u!1 &1452989389911374
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4977612083359940}
-  - component: {fileID: 33246808642991174}
-  - component: {fileID: 65213112619258000}
-  - component: {fileID: 23565952083220692}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1729919999674204
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,77 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4977612083359940}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4977612083359940
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1452989389911374}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.82, y: 1.09, z: 2.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4216773268735000}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23565952083220692
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1452989389911374}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &33246808642991174
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1452989389911374}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65213112619258000
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1452989389911374}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114577065786930178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,17 +53,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requestString:
   - Please help me speak to my sweet doggie, I accidentally ran her over yesterday.
-  - My son hung himself last week, I would like to talk to him one last time.
   - I've always felt like my grandpa never liked me, can I have a word with him?
+  - My poor kitty passed away in her sleep last night, I've always wanted to know
+    how she felt about me.
+  - My Dungeons & Dragons character was killed yesterday, did his spirit pass on and
+    if so, what is he saying?
+  - My father passed away in the war, my life goal was to make him proud, what does
+    he think of me?
+  - I pushed my wife and my unborn son down the stairs 10 years ago, do they still
+    love me?
+  - My son hung himself last week, I would like to talk to him one last time.
+  - My baby ate a tide pod and died yesterday, can I get in contact with her?
+  - My classmates got passed away during a school shooting, can you somehow get them
+    all in here?
+  - My girlfriend dissappeared 7 years ago, can you find her spirit for me?
   - This morning I stepped on a spider and I would like to apologize to it.
-  - My radio died last week and I'd like say sorry. Is that possible?
+  - Can I speak to the spirit of Net Neutrality?
+  - My radio died last week and I'd like say farewell to it. Is that possible?
+  - My favorite meme died a while ago, could you summon it back?
+  - My daughter bled out while cutting for Bieber, could you channel her spirit.
+  - Can I speak to the ghost of Christmas past, or is that not how this works?
   responseString:
   - They're safe, at peace and they forgive you.
+  - They're safe, at peace and they've always loved you.
   - They said to tell you to f*ck off and get your life together.
-  - They don't seem to recognize you anymore.
-  - 'All I heard was: "Omae wa mou shindeiru."'
-  - They asked "What room does a ghost not need...?" The living room.
-  - They told me to tell you I loooooooooove, BITCONNEEEEEEEEEEEEEEEEEEEECT!
+  - They said they always hated you and you should've known better.
+  - They said it's all your fault.
+  - They don't seem to recognize you.
+  - They burst into laughter and flew off...
+  - They flew away in fear...
+  - They would like to take you out on a date.
+  - They said that you did the right thing.
+  - They want you to look under your seat right now.
+  - 'All they said was: "Omae wa mou shindeiru".'
+  - They told me to tell you they loooooooooove BITCONNEEEEEEEEEEEEEEEEEEEEEEEEEEEEEECT!
+  - 'They asked: "What room does a ghost not need...?" The living room.'
+  - 'They asked: "Why are ghosts such terrible liars...?" Because you''d see right
+    through them.'
+  - 'They asked: "How do ghosts keep fit...?" By excorcising regularly.'
   dialogTextBox: {fileID: 0}
   nextCharacterDelay: 0.05
   clientPrefab: {fileID: 1075787087526330, guid: c0da139b3bdcb8540bcfcbe62cc473e1,
