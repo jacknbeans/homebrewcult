@@ -704,15 +704,15 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 4.587572
-      outSlope: 4.587572
+      inSlope: 3.3527935
+      outSlope: 3.3527935
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   moveTimer: 0
   moveSpeed: 0.4
-  moveOffset: 20
+  moveOffset: {x: 20, y: 0, z: 2}
   started: 0
   completed: 0
 --- !u!114 &114682331633722080

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4129377340852956}
   - component: {fileID: 23504949969882544}
   - component: {fileID: 102139372329839274}
+  - component: {fileID: 114453692527455202}
   m_Layer: 0
   m_Name: Ouija_Feedback_Text
   m_TagString: Untagged
@@ -618,7 +619,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1030827474852030}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.009, z: 0.627}
+  m_LocalPosition: {x: 0, y: 0, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4799733349781284}
@@ -825,7 +826,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1979330362593454}
-  m_LocalRotation: {x: 0, y: -0.01745245, z: 0, w: 0.99984777}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -927,7 +928,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 24217769034915f47a854c96883acb42, type: 2}
+  - {fileID: 2100000, guid: 6cc2a65f12bde0f41bd4e473cae471a7, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1024,7 +1025,7 @@ TextMesh:
   m_GameObject: {fileID: 1030827474852030}
   m_Text: hello
   m_OffsetZ: 0
-  m_CharacterSize: 0.03
+  m_CharacterSize: 0.015
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -1032,10 +1033,10 @@ TextMesh:
   m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 4611ac9611b8eaf4fb19c166840b01e7, type: 3}
+  m_Font: {fileID: 12800000, guid: 6cc2a65f12bde0f41bd4e473cae471a7, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4294966749
 --- !u!114 &114009169358992896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1228,6 +1229,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Letter: 0
+--- !u!114 &114453692527455202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1030827474852030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6635a3ef8c5d241b76d8bc93dbb45f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteArray: []
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 4.0277915
+      outSlope: 4.0277915
+      tangentMode: 65
+    - serializedVersion: 2
+      time: 0.253154
+      value: 1.0196515
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.75216067
+      value: -1.0009899
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.0020103455
+      inSlope: 4.0469775
+      outSlope: 8.073738
+      tangentMode: 5
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 0
+  moveOffsetAmount: {x: 0, y: -0.01, z: 0}
+  moveSpeed: 0.2
+  moveTimer: 0
+  isEye: 0
+  blinkChance: 0
 --- !u!114 &114531872100034676
 MonoBehaviour:
   m_ObjectHideFlags: 1

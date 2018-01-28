@@ -9,7 +9,7 @@ public class Client_Core : MonoBehaviour {
     public AnimationCurve moveCurve;
     public float moveTimer;
     public float moveSpeed;
-    public float moveOffset;
+    public Vector3 moveOffset;
 
     public bool started;
     //[HideInInspector]
@@ -25,7 +25,7 @@ public class Client_Core : MonoBehaviour {
 		if(!started)
         {
             moveTimer -= Time.deltaTime * moveSpeed;
-            transform.position = rootPos + new Vector3(-moveOffset * moveCurve.Evaluate(moveTimer), 0, 0);
+            transform.position = rootPos + new Vector3(moveOffset.x, moveOffset.y, moveOffset.z) * moveCurve.Evaluate(moveTimer);
             if(moveTimer < 0)
             {
                 started = true;
@@ -34,7 +34,7 @@ public class Client_Core : MonoBehaviour {
         if(started && completed)
         {
             moveTimer += Time.deltaTime * moveSpeed;
-            transform.position = rootPos + new Vector3(moveOffset * moveCurve.Evaluate(moveTimer), 0, 0);
+            transform.position = rootPos + new Vector3(-moveOffset.x, moveOffset.y, moveOffset.z) * moveCurve.Evaluate(moveTimer);
             if (moveTimer > 1)
             {
                 Destroy(gameObject);

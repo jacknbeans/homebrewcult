@@ -18,7 +18,7 @@ public class StressChannelManager : MonoBehaviour
 
     private void Start()
     {
-        _counterLevel = new[] {0.0f, 0.0f};
+        _counterLevel = new[] {0.0f, -50.0f};
         // The _numCountersDivisor is equal to 2x the length of the counter level array multiplied by the MaxLevel
         // This is because each counter takes up a range from -MaxLevel to MaxLevel
         _numCountersDivisor = _counterLevel.Length * 2.0f * MaxLevel;
@@ -31,7 +31,7 @@ public class StressChannelManager : MonoBehaviour
                               -1.0f * (_counterLevel[ChannelIndex] + MaxLevel) / _numCountersDivisor);
         print(lerpT);
         var newNeedleAngle = Mathf.LerpAngle(MinNeedleAngle, MaxNeedleAngle, lerpT);
-        Needle.rotation = Quaternion.Euler(Needle.eulerAngles.x, Needle.eulerAngles.y, newNeedleAngle);
+        Needle.localRotation = Quaternion.Euler(Needle.localEulerAngles.x, newNeedleAngle, Needle.localEulerAngles.z);
     }
 
     public void AffectStressLevel(float amount)
