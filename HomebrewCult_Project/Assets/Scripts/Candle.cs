@@ -19,8 +19,11 @@ public class Candle : GameplayBehaviour {
     public Light flameLight;
     public ParticleSystem flameFx;
 
+    private AudioSource litSound;
+
 	// Use this for initialization
 	void Start () {
+        litSound = GetComponent<AudioSource>();
         GetLit();
 	}
 	
@@ -59,6 +62,7 @@ public class Candle : GameplayBehaviour {
             flameLight.intensity = Random.Range(minMaxIntensity.x, minMaxIntensity.y);
             flameFx.Play();
             isLit = true;
+            litSound.Play();
         }
     }
 }
