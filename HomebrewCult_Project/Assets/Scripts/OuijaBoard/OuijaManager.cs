@@ -27,6 +27,7 @@ public class OuijaManager : GameplayBehaviour {
     public float threshold;
 
     private AudioSource badWordSound;
+    private AudioSource goodWordSound;
 
     private OuijaLetter letter;
 
@@ -67,6 +68,12 @@ public class OuijaManager : GameplayBehaviour {
                 if (channelPoints < 0.0f)
                 {
                     badWordSound.Play();
+                    Debug.Log("bad");
+                }
+                else
+                {
+                    goodWordSound.Play();
+                    Debug.Log("good");
                 }
             }
 
@@ -94,6 +101,8 @@ public class OuijaManager : GameplayBehaviour {
         {
             Debug.LogError("There should be a client manager in the scene!");
         }
+
+        goodWordSound = GameObject.Find("GoodWordSound").GetComponent<AudioSource>();
 
         // Creating the dictionary only needs to happen at the start
         LetterIndices = new Dictionary<char, int>(OuijaLetters.Length);
