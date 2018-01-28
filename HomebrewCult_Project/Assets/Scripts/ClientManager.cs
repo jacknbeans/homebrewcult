@@ -25,6 +25,8 @@ public class ClientManager : MonoBehaviour
     private float soundTimer;
     private AudioSource blaSound;
     private bool playSound;
+    public GameObject victoryObject;
+    private AudioSource victorySound;
 
     private bool summoning;
 
@@ -34,6 +36,7 @@ public class ClientManager : MonoBehaviour
 	    dialogRead = true;
         dialogTextBox.text = " ";
         blaSound = gameObject.GetComponent<AudioSource>();
+        victorySound = victoryObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -99,6 +102,7 @@ public class ClientManager : MonoBehaviour
     public void FinishedSummoning()
     {
         summoning = false;
+        victorySound.Play();
     }
 
     public void SpawnClient()
