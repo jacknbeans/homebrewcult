@@ -43,8 +43,8 @@ public class ClientManager : MonoBehaviour {
             if (soundTimer >= 0.15f && playSound == true)
             {
                 BlaSound();
-            }
-                soundTimer = 0.0f;
+            soundTimer = 0.0f;
+        }
         }
         /*if(Input.GetMouseButtonDown(0))
         {
@@ -69,7 +69,7 @@ public class ClientManager : MonoBehaviour {
                     NextClient();
             }
         }*/
-	}
+    }
 
     public void StartDialogue()
     {
