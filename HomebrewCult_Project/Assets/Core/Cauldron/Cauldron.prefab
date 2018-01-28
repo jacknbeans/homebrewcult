@@ -109,6 +109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6c8d46fcecb6b4fa59e6c52cc365b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hangrySpeed: 1
+  nomValue: 40
+  badnomValue: 50
+  cauldronColor: {r: 0, g: 0, b: 0, a: 0}
+  splashPrefab: {fileID: 1978401703914092, guid: 33c6204e03cdefd4a82e8abb2b587309,
+    type: 2}
 --- !u!198 &198484822316842664
 ParticleSystem:
   m_ObjectHideFlags: 1
