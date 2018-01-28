@@ -21,7 +21,7 @@ public class Candle : GameplayBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        GetLit();
 	}
 	
 	// Update is called once per frame
