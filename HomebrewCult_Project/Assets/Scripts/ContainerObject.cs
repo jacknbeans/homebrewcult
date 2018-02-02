@@ -5,7 +5,8 @@ using UnityEngine;
 public class ContainerObject : GameplayBehaviour
 {
     public GameObject spawnObj;
-    public Vector3 spawnVector;
+    public Vector3 spawnPosOffset;
+    public Vector2 spawnRotOffset;
     public float shakeBump;
     public float timerBump;
 
@@ -38,7 +39,7 @@ public class ContainerObject : GameplayBehaviour
 	void Update ()
 	{
         distance = Vector3.Distance(lastPosition, gameObject.transform.position);
-        timer += 1f;
+        timer += Time.deltaTime;
         soundTimer += 1.0f * Time.deltaTime;
        if (distance >= shakeBump && enableSound && !shakeSound.isPlaying)
         {
@@ -58,8 +59,8 @@ public class ContainerObject : GameplayBehaviour
 	    if (distance >= shakeBump && timer >= timerBump)
         {
             var newGameobject = Instantiate(spawnObj);
-            newGameobject.transform.position = gameObject.transform.position + new Vector3(0,0.5f,0.1f);
-            newGameobject.transform.rotation = Quaternion.Euler(spawnVector + new Vector3(0, Random.Range(0, 180), 0));
+            newGameobject.transform.position = gameObject.transform.position + spawnPosOffset;
+            newGameobject.transform.rotation = Quaternion.Euler(new Vector3(0, Random.Range(spawnRotOffset.x, spawnRotOffset.y), 0));
             timer = 0f;
         }
 

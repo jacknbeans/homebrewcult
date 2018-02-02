@@ -510,12 +510,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 57f84cc83c1192f41bbe4d7afb841220, type: 2}
   - {fileID: 2100000, guid: 7aefe0004727a7c46962de864a647ae6, type: 2}
   - {fileID: 2100000, guid: f22c51c92a944c2458642c4411942339, type: 2}
-  - {fileID: 2100000, guid: cc795d10709072f43abbda153cc9190a, type: 2}
-  - {fileID: 2100000, guid: cc795d10709072f43abbda153cc9190a, type: 2}
-  - {fileID: 2100000, guid: b6f60156ea877d5489ebd4f2897f4ef2, type: 2}
-  - {fileID: 2100000, guid: dc14f7b373a74934ebb4a1c1f48c1af7, type: 2}
   - {fileID: 2100000, guid: 193159e00196d574ab3c57134b8b4baa, type: 2}
   - {fileID: 2100000, guid: fb960de9c45dc0e44a53ae4d92e99abc, type: 2}
+  - {fileID: 0}
   moveCurve:
     serializedVersion: 2
     m_Curve:

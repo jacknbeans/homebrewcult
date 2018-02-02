@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Logo : MonoBehaviour {
 
@@ -34,7 +35,7 @@ public class Logo : MonoBehaviour {
             animTimer = animFrameDelay;
             animFrameUsed++;
         }
-        else
+        if (animTimer <= 0 && animFrameUsed == logoAnim.Length-1)
         {
             NextScene();
         }
@@ -49,6 +50,6 @@ public class Logo : MonoBehaviour {
 
     void NextScene()
     {
-        Debug.Log("Next Scene");
+        SceneManager.LoadScene(1);
     }
 }

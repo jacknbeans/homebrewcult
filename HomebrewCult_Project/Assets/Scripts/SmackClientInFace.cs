@@ -29,7 +29,7 @@ public class SmackClientInFace : MonoBehaviour
                 return;
             }
 
-            _clientManager.DialogRead();
+            //_clientManager.DialogRead();
         }
     }
 }

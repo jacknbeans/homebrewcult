@@ -61,7 +61,7 @@ namespace Core.SwitchCamera
             if (_firstTime)
             {
                 _firstTime = false;
-                TheClientManager.StartDialogue();
+                TheClientManager.StartFirstDialog();
                 _image.color = _initialImageColor;
             }
         }

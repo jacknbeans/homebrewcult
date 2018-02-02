@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1729919999674204}
   m_IsPrefabParent: 1
+--- !u!1 &1443950151495452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4971081641528800}
+  - component: {fileID: 82933402846919992}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1729919999674204
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +71,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4216773268735000}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4216773268735000
 Transform:
@@ -67,8 +83,22 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4971081641528800}
   - {fileID: 4092251063009038}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4971081641528800
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443950151495452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4216773268735000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82068202492991496
@@ -231,6 +261,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82933402846919992
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443950151495452}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c4dc4ca8675ff9b44bf7979237df1325, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114577065786930178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,8 +365,8 @@ MonoBehaviour:
     love me?
   - My son hung himself last week, I would like to talk to him one last time.
   - My baby ate a tide pod and died yesterday, can I get in contact with her?
-  - My classmates got passed away during a school shooting, can you somehow get them
-    all in here?
+  - My classmates passed away during a school shooting, can you somehow get them all
+    in here?
   - My girlfriend dissappeared 7 years ago, can you find her spirit for me?
   - This morning I stepped on a spider and I would like to apologize to it.
   - Can I speak to the spirit of Net Neutrality?
@@ -284,7 +394,16 @@ MonoBehaviour:
   - 'They asked: "How do ghosts keep fit...?" By excorcising regularly.'
   dialogTextBox: {fileID: 0}
   nextCharacterDelay: 0.05
+  helpingClient: 0
+  dialogRead: 0
   clientPrefab: {fileID: 1075787087526330, guid: c0da139b3bdcb8540bcfcbe62cc473e1,
     type: 2}
+  photoPrefab: {fileID: 1889142899410320, guid: 38bb2e411ef11da47ab5dc587cb11055,
+    type: 2}
+  photoInsertPrefab: {fileID: 1934487682950402, guid: 06eb2b8375d693f45ace6f150383c5a0,
+    type: 2}
+  photoGiven: 0
+  photoInsertSpawned: 0
+  photoInUse: {fileID: 0}
   clientPos: {x: 0, y: 0.25, z: 0}
   victoryObject: {fileID: 1964652105149156}

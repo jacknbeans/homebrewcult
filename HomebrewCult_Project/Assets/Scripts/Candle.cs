@@ -18,6 +18,7 @@ public class Candle : GameplayBehaviour {
 
     public Light flameLight;
     public ParticleSystem flameFx;
+    public ParticleSystem flameBurstFx;
 
     private AudioSource litSound;
 
@@ -50,19 +51,22 @@ public class Candle : GameplayBehaviour {
         }
         else
         {
-            Stress(-stressAmount * Time.deltaTime);
+            TooDark();
         }
 	}
 
     public void GetLit()
     {
-        if (!isLit)
-        {
-            remainingLitTime = Random.Range(timeDurationBetween.x, timeDurationBetween.y);
-            flameLight.intensity = Random.Range(minMaxIntensity.x, minMaxIntensity.y);
-            flameFx.Play();
-            isLit = true;
-            litSound.Play();
-        }
+        remainingLitTime = Random.Range(timeDurationBetween.x, timeDurationBetween.y);
+        flameLight.intensity = Random.Range(minMaxIntensity.x, minMaxIntensity.y);
+        flameFx.Play();
+        flameBurstFx.Play();
+        isLit = true;
+        litSound.Play();
+    }
+
+    void TooDark()
+    {
+        Stress(-stressAmount * Time.deltaTime);
     }
 }

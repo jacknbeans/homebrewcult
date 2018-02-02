@@ -19,6 +19,7 @@ public class Cauldron : GameplayBehaviour
     private GameObject spawnedSplash;
 
     private AudioSource splashSound;
+    public ParticleSystem boilFx;
 
 	// Use this for initialization
 	void Start ()
@@ -38,6 +39,13 @@ public class Cauldron : GameplayBehaviour
         if (hangryValue <= 0.0f)
         {
             TooHangry();
+            if (!boilFx.isPlaying)
+                boilFx.Play();
+        }
+        else
+        {
+            if (boilFx.isPlaying)
+                boilFx.Stop();
         }
 	}
 
@@ -77,6 +85,6 @@ public class Cauldron : GameplayBehaviour
 
     void TooHangry()
     {
-        Stress(-stressToAdd);
+        Stress(-stressToAdd * Time.deltaTime);
     }
 }

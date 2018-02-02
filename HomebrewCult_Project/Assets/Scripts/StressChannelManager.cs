@@ -45,7 +45,6 @@ public class StressChannelManager : MonoBehaviour
 
         if (lerpT >= PercentToSucceed)
         {
-            TheClientManager.SummonGhost();
             _counterLevel[ChannelIndex] = -MaxLevel;
             TheClientManager.FinishedSummoning();
         }

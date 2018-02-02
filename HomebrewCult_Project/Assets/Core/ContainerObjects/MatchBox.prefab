@@ -277,9 +277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObj: {fileID: 1463643375652248, guid: c54733b5a95a24142af75985870f873e, type: 2}
-  spawnVector: {x: 0, y: 0, z: 0}
+  spawnPosOffset: {x: -0.3, y: 0, z: -0.3}
+  spawnRotOffset: {x: 135, y: 225}
   shakeBump: 0.2
-  timerBump: 1
+  timerBump: 0.2
   enableSound: 1
 --- !u!114 &114387050253080982
 MonoBehaviour:

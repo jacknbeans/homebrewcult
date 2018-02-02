@@ -15,10 +15,16 @@ public class ClientManager : MonoBehaviour
     private string chosenText;
 
     private bool ghostSummoned;
-    private bool dialogRead;
+    public bool helpingClient;
+    public bool dialogRead;
     private bool playerSpeaking = false;
 
     public GameObject clientPrefab;
+    public GameObject photoPrefab;
+    public GameObject photoInsertPrefab;
+    public bool photoGiven;
+    public bool photoInsertSpawned;
+    public Photograph photoInUse;
     public Vector3 clientPos;
     private Client_Core currentClient;
 
@@ -28,7 +34,7 @@ public class ClientManager : MonoBehaviour
     public GameObject victoryObject;
     private AudioSource victorySound;
 
-    private bool summoning;
+    private OuijaManager ouijaBoard;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +43,7 @@ public class ClientManager : MonoBehaviour
         dialogTextBox.text = " ";
         blaSound = gameObject.GetComponent<AudioSource>();
         victorySound = victoryObject.GetComponent<AudioSource>();
+        ouijaBoard = FindObjectOfType<OuijaManager>();
 	}
 	
 	// Update is called once per frame
@@ -48,42 +55,25 @@ public class ClientManager : MonoBehaviour
             if (soundTimer >= 0.15f && playSound == true)
             {
                 BlaSound();
-            soundTimer = 0.0f;
-        }
-        }
-        /*if(Input.GetMouseButtonDown(0))
-        {
-            if(!ghostSummoned)
-            {
-                if (!dialogRead)
-                {
-                    dialogTextBox.text = " ";
-                    dialogRead = true;
-                }
-                else
-                    SummonGhost();
+                soundTimer = 0.0f;
             }
-            else
-            {
-                if (!dialogRead)
-                {
-                    dialogTextBox.text = " ";
-                    dialogRead = true;
-                }
-                else
-                    NextClient();
-            }
-        }*/
+        }
     }
 
-    public void StartDialogue()
+    public void SpawnClient()
+    {
+        currentClient = Instantiate(clientPrefab, clientPos, Quaternion.identity, null).GetComponent<Client_Core>();
+        currentClient.rootPos = clientPos;
+        ghostSummoned = false;
+        helpingClient = true;
+        chosenText = requestString[Random.Range(0, requestString.Length)];
+        dialogRead = false;
+        currentCharacterInt = 0;
+    }
+
+    public void StartFirstDialog()
     {
         dialogRead = false;
-    }
-
-    public bool IsSummoning()
-    {
-        return summoning;
     }
 
     public void DialogRead()
@@ -92,38 +82,28 @@ public class ClientManager : MonoBehaviour
         {
             dialogTextBox.text = " ";
             dialogRead = true;
-            summoning = true;
+            ouijaBoard.channeling = true;
         }
-        else
+        if (ghostSummoned && !helpingClient)
         {
-            if (!summoning)
-            {
-                dialogTextBox.text = " ";
-                NextClient();
-            }
+            dialogTextBox.text = " ";
+            dialogRead = true;
+            NextClient();
         }
     }
 
     public void FinishedSummoning()
     {
-        summoning = false;
+        photoInUse.spiritSummoned = true;
+        ghostSummoned = true;
+        ouijaBoard.channeling = false;
         victorySound.Play();
+        EndDialog();
     }
 
-    public void SpawnClient()
-    {
-        currentClient = Instantiate(clientPrefab, clientPos, Quaternion.identity, null).GetComponent<Client_Core>();
-        currentClient.rootPos = clientPos;
-        ghostSummoned = false;
-        chosenText = requestString[Random.Range(0, requestString.Length)];
-        dialogRead = false;
-        currentCharacterInt = 0;
-    }
-
-    public void SummonGhost()
+    public void EndDialog()
     {
         playerSpeaking = false;
-        ghostSummoned = true;
         chosenText = responseString[Random.Range(0, responseString.Length)];
         dialogRead = false;
         currentCharacterInt = 0;
@@ -131,8 +111,8 @@ public class ClientManager : MonoBehaviour
 
     public void NextClient()
     {
-        currentClient.completed = true;
         playerSpeaking = true;
+        currentClient.completed = true;
         SpawnClient();
     }
 
@@ -152,10 +132,21 @@ public class ClientManager : MonoBehaviour
             {
                 playSound = false;
             }
+            //photospawning
+            if (currentCharacterInt == chosenText.Length && !ghostSummoned && !photoGiven)
+            {
+                photoInUse = Instantiate(photoPrefab, new Vector3(0, 1, -1), Quaternion.identity, null).GetComponent<Photograph>();
+                photoGiven = true;
+            }
+            //photo insert spawning
+            if (currentCharacterInt == chosenText.Length && ghostSummoned && !photoInsertSpawned)
+            {
+                Instantiate(photoInsertPrefab, new Vector3(0, 1, -1), photoInsertPrefab.transform.rotation, null);
+                photoInsertSpawned = true;
+            }
         }
-        
-
     }
+
     void BlaSound()
     {
         if (playerSpeaking)
@@ -167,5 +158,10 @@ public class ClientManager : MonoBehaviour
             blaSound.pitch = Random.Range(1.5f, 1.7f);
         }
         blaSound.Play();
+    }
+
+    public bool IsSummoning()
+    {
+        return helpingClient;
     }
 }

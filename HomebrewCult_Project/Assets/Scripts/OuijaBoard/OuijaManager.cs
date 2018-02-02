@@ -6,6 +6,8 @@ public class OuijaManager : GameplayBehaviour {
 
     public OuijaLetter[] OuijaLetters;
     public TextMesh OuijaSpellingText;
+    [HideInInspector]
+    public bool channeling;
 
     public string[] goodWords;
     public string[] badWords;
@@ -35,52 +37,59 @@ public class OuijaManager : GameplayBehaviour {
 
     private void GetNewWord()
     {
-        // Reset text and the word
-        charIndex = 0;
-        OuijaSpellingText.text = null;
+        if (channeling)
+        {
+            // Reset text and the word
+            charIndex = 0;
+            OuijaSpellingText.text = null;
 
-        // Do this each time a new word is needed for the planchette
-        float randomWord = Random.Range(0.0f, 1.0f);
-        if (randomWord > 0.5f)
-        {
-            // Good words
-            var word = goodWords[Random.Range(0, goodWords.Length)];
-            characters = word.ToCharArray();
-            channelPoints = Mathf.Abs(channelPoints);
-        }
-        else
-        {
-            // Bad words
-            var word = badWords[Random.Range(0, badWords.Length)];
-            characters = word.ToCharArray();
-            channelPoints = -Mathf.Abs(channelPoints);
+            // Do this each time a new word is needed for the planchette
+            float randomWord = Random.Range(0.0f, 1.0f);
+            if (randomWord > 0.5f)
+            {
+                // Good words
+                var word = goodWords[Random.Range(0, goodWords.Length)];
+                characters = word.ToCharArray();
+                channelPoints = Mathf.Abs(channelPoints);
+            }
+            else
+            {
+                // Bad words
+                var word = badWords[Random.Range(0, badWords.Length)];
+                characters = word.ToCharArray();
+                channelPoints = -Mathf.Abs(channelPoints);
+            }
         }
     }
 
     private OuijaLetter GetLetter()
     {
-        // Do this each time a new letter is needed for the planchette
-        if (charIndex >= characters.Length)
+        if (channeling)
         {
-            if (_clientManager.IsSummoning())
+            // Do this each time a new letter is needed for the planchette
+            if (charIndex >= characters.Length)
             {
-                Channel(channelPoints);
-                if (channelPoints < 0.0f)
+                if (_clientManager.IsSummoning())
                 {
-                    badWordSound.Play();
+                    Channel(channelPoints);
+                    if (channelPoints < 0.0f)
+                    {
+                        badWordSound.Play();
+                    }
+                    else
+                    {
+                        goodWordSound.Play();
+                    }
                 }
-                else
-                {
-                    goodWordSound.Play();
-                }
-            }
 
-            charIndex = 0;
-            return null;
+                charIndex = 0;
+                return null;
+            }
+            timer = 0;
+            letterIndex = LetterIndices[characters[charIndex++]];
+            return OuijaLetters[letterIndex];
         }
-        timer = 0;
-        letterIndex = LetterIndices[characters[charIndex++]];
-        return OuijaLetters[letterIndex];
+        return null;
     }
 
     private void UpdateSpellingBoard()

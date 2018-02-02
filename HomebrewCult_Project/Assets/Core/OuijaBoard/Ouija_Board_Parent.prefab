@@ -1214,7 +1214,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1030827474852030}
-  m_Text: hello
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 0.015
   m_LineSpacing: 1
@@ -1566,20 +1566,25 @@ MonoBehaviour:
   - {fileID: 114923952164147350}
   - {fileID: 114422432465232154}
   OuijaSpellingText: {fileID: 102139372329839274}
+  channeling: 0
   goodWords:
   - DEAR
   - KIND
-  - LOVE
+  - SUPER
+  - HEAVEN
+  - GRACE
   badWords:
   - DEATH
   - KILL
-  - LOST
+  - SUFFER
+  - HELL
+  - GRAVE
   planchette: {fileID: 0}
   timeBetweenLetters: 0.5
   timeStayingOnLetters: 1
   timeBetweenWords: 3
   timeStranglingPlanchetteRequired: 3.5
-  channelPoints: 30
+  channelPoints: 50
   threshold: 0.01
 --- !u!114 &114797915816407050
 MonoBehaviour:
